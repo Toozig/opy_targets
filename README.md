@@ -23,12 +23,8 @@ Example: <br>
 
  Lets say you want to get SNPS of gene you think is related to a disease
 
-..code-block:: python
-
 
     import opy_targets as opy
-    
-    #
     
     ENDOMETRIOSIS_EFO_ID = 'EFO_0001065'
     SNP_ESNG_ID = ENSG00000196208
@@ -49,11 +45,6 @@ output: <br>
 Most of the chances you don't know the genes related to the disease. NO PROBLEM! <br>
 
 Lets say you want to know which SNP associate with a disease you study
-
-
-..code-block:: python
-
-
 
 
     import opy_targets as opy
