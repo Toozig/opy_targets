@@ -23,7 +23,7 @@ Example: <br>
 
  Lets say you want to get SNPS of gene you think is related to a disease
 
-.. code-block:: python
+..code-block:: python
 
 
     import opy_targets as opy
@@ -51,7 +51,7 @@ Most of the chances you don't know the genes related to the disease. NO PROBLEM!
 Lets say you want to know which SNP associate with a disease you study
 
 
-.. code-block:: python
+..code-block:: python
 
 
 
