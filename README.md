@@ -29,7 +29,7 @@ Example: <br>
     ENDOMETRIOSIS_EFO_ID = 'EFO_0001065'
     SNP_ESNG_ID = ENSG00000196208
     
-    get_snp_data(SNP_ESNG_ID,ENDOMETRIOSIS_ID).head(4)
+    opy.get_snp_data(SNP_ESNG_ID,ENDOMETRIOSIS_ID).head(4)
     
 output: <br>
 
@@ -53,7 +53,7 @@ Lets say you want to know which SNP associate with a disease you study
     
     ENDOMETRIOSIS_EFO_ID = 'EFO_0001065'
     
-    get_SNP_df(ENDOMETRIOSIS_ID).head()
+    opy.get_SNP_df(ENDOMETRIOSIS_ID).head()
     
     
 output:
