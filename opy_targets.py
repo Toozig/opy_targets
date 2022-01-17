@@ -1,7 +1,3 @@
-import pandas as pd
-import requests
-import json
-
 DISEASE_GENE_QUERY = """
         query DiseaseAssociationsQuery($efoId: String!, $index: Int!, $size: Int!, $filter: String, $sortBy: String!, $aggregationFilters: [AggregationFilter!]) {
           disease(efoId: $efoId) {
@@ -138,11 +134,12 @@ def get_gene_data(target):
             continue
     return pd.Series(g_data).drop('__typename')
 
-def get_disease_targets(efoId: str,sort_by: str='genetic_association', size: int=50)-> pd.DataFrame:
+def get_disease_targets(efoId: str,sort_by: str='genetic_association', size: int=50, threshold=0.0035)-> pd.DataFrame:
     """
     efoId - ID of disease. example: ENSG00000196208 (endometriosis)
     sort_by - default: 'genetic_association'. Can be 'drugs' or any other option from opentarget
     size - amoun t of gene retrived by the query
+    threshold - genetic association minimal score
     returns pd.DataFrame of the first -size- gene associated to the disease specified by the -efoId- sorted by -sortby-
     
     """
@@ -155,11 +152,10 @@ def get_disease_targets(efoId: str,sort_by: str='genetic_association', size: int
         "filter": "",
         "aggregationFilters": []
     }
-    
     targets = ask_api(DISEASE_GENE_QUERY, v_dict)['data']['disease']['associatedTargets']['rows']
-
-    return pd.concat([get_gene_data(i) for i in targets],axis=1).T
-
+    result = pd.concat([get_gene_data(i) for i in targets],axis=1).T
+    result = result[result.genetic_association_score >= threshold]
+    return result
 
 def get_snp_data(ens_id: str, asso_disease_id: str, size: int=10)-> pd.DataFrame:
     """
