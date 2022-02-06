@@ -27,9 +27,9 @@ Example: <br>
     import opy_targets as opy
     
     ENDOMETRIOSIS_EFO_ID = 'EFO_0001065'
-    SNP_ESNG_ID = ENSG00000196208
+    GENE_ESNG_ID = ENSG00000196208
     
-    opy.get_snp_data(SNP_ESNG_ID,ENDOMETRIOSIS_ID).head(4)
+    opy.get_snp_data(GENE_ESNG_ID,ENDOMETRIOSIS_ID).head(4)
     
 output: <br>
 
