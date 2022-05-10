@@ -1,3 +1,7 @@
+import pandas as pd
+import requests
+import json
+
 DISEASE_GENE_QUERY = """
         query DiseaseAssociationsQuery($efoId: String!, $index: Int!, $size: Int!, $filter: String, $sortBy: String!, $aggregationFilters: [AggregationFilter!]) {
           disease(efoId: $efoId) {
